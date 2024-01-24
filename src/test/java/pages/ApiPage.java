@@ -45,12 +45,8 @@ public class ApiPage {
     }
 
     public void validationResponseBodyGetUserByID(){
-       List<Object> id = res.jsonPath().getList("id");
-       assertThat(id.get(0)).isNotNull();
-
-        System.out.println();
-
-
+       String id = res.jsonPath().getString("data[0].id");
+       assertThat(id).isNotNull();
     }
 
     public void validationResponseJsonWithJSONSchema(){
